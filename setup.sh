@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 set -e
 sudo apt update
 sudo apt install -y python2 python3-pip python3-pexpect curl unzip busybox-static fakeroot kpartx snmp uml-utilities util-linux vlan qemu-system-arm qemu-system-mips qemu-system-x86 qemu-utils
@@ -7,14 +8,16 @@ sudo add-apt-repository universe
 sudo apt update
 curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
 sudo python2 get-pip.py
+rm get-pip.py
 
 echo "Installing binwalk"
 git clone --depth=1 https://github.com/eeehit/binwalk.git
 cd binwalk
 sudo ./deps.sh --yes
+
 sudo python3 ./setup.py install
-sudo -H pip3 install git+https://github.com/ahupp/python-magic
-sudo -H pip install git+https://github.com/sviehb/jefferson
+sudo -H python3 -m pip install git+https://github.com/ahupp/python-magic
+sudo -H python2 -m pip install git+https://github.com/sviehb/jefferson
 cd ..
 
 echo "Installing firmadyne"
