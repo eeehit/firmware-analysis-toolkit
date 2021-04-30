@@ -130,7 +130,7 @@ def final_run(image_id, arch, qemu_dir):
         pexpect.run(cmd)
 
     print ("[+] All set! Press ENTER to run the firmware...")
-    input ("[+] When running, press Ctrl + A X to terminate qemu")
+    print ("[+] When running, press Ctrl + A X to terminate qemu")
 
     print ("[+] Command line:", runsh_path)
     run_cmd = ["--", runsh_path]
